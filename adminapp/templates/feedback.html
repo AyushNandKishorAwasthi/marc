@@ -1,0 +1,38 @@
+{% extends "adminparent.html" %} {% block body %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 style="text-align: center">Feedbacks Management</h1>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered text-light">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Contact No.</th>
+                        <th>Email Address</th>
+                        <th>Subject</th>
+                        <th>Complaint</th>
+                        <th>Posted Date</th>
+                        <th>Delete</th>
+                    </tr>
+                    {% for f in feed%}
+                    <tr>
+                        <td>{{f.id}}</td>
+                        <td>{{f.name}}</td>
+                        <td>{{f.contactno}}</td>
+                        <td>{{f.emailaddress}}</td>
+                        <td>{{f.subject}}</td>
+                        <td>{{f.responsetext}}</td>
+                        <td>{{f.posteddate}}</td>
+                        <td>
+                            <a href="{% url 'adminapp:delResponseFeedback' id=f.id %}"
+                                class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

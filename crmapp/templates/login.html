@@ -1,0 +1,33 @@
+{% extends "parent.html" %} {% block body%}
+<div class="col-sm-6 mx-auto">
+
+  <h1 style="color: black; text-align: center">Login</h1>
+  <!-- Bootstrap Alert Modal Window -->
+  {% if msgP %}
+  <div class="alert alert-primary" role="alert">{{msgP}}</div>
+  {% endif %} {% if msgF %}
+  <div class="alert alert-danger" role="alert">{{msgF}}</div>
+  {% endif %}
+  <form method="post" class="form-group w-50 mx-auto">
+    {% csrf_token %}
+    <table class="table">
+      <tr>
+        <td>Enter User Id</td>
+        <td>
+          <input type="text" class="form-control" name="userid" placeholder="Enter User Id" required />
+        </td>
+      </tr>
+      <tr>
+        <td>Enter Password</td>
+        <td>
+          <input type="password" name="password" placeholder="Enter password" class="form-control" required />
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><button type="submit" class="btn btn-primary">Login</button></td>
+      </tr>
+    </table>
+  </form>
+</div>
+{% endblock body%}

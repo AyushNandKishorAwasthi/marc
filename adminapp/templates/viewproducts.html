@@ -1,0 +1,31 @@
+{% extends "adminparent.html" %} {% block body %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 style="text-align: center">View Products</h1>
+        <table class="table table-bordered text-light" style="margin:auto;">
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Mfg Date</th>
+                <th>Exp Date</th>
+                <th>Price</th>
+                <th>Product Image</th>
+                <th>Delete</th>
+            </tr>
+            {% for p in prod %}
+            <tr>
+                <td>{{p.pid}}</td>
+                <td>{{p.productname}}</td>
+                <td>{{p.mfgdate}}</td>
+                <td>{{p.expdate}}</td>
+                <td>{{p.price}}</td>
+                <td><img src="{{p.productpic.url}}" alt="Product Image" style="height:70px; width:70px;"></td>
+                <td><a href="{% url 'adminapp:delproduct' pid=p.pid %}"><button type="button"
+                            class="btn btn-danger">Delete</button></a></td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock body %}

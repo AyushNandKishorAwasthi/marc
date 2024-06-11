@@ -1,0 +1,60 @@
+{% extends "parent.html" %} {% block body%}
+<h1 style="color: black; text-align: center">Customer Registration Form</h1>
+{% if msg %}
+<p style="text-align: center; color: blue">{{msg}}</p>
+{% endif %}
+<form action="#" method="post" class="form-group">
+  {% csrf_token %}
+  <table class="table" style="margin: auto">
+    <tr>
+      <td>Enter Name</td>
+      <td>
+        <input type="text" name="name" class="form-control" required placeholder="Enter Name" />
+      </td>
+    </tr>
+    <tr>
+      <td>Select Gender</td>
+      <td>
+        <input type="radio" name="gender" value="Male" class="form-check-input" />Male
+        <input type="radio" name="gender" value="Female" class="form-check-input" />Female
+      </td>
+    </tr>
+    <tr>
+      <td>Enter Address</td>
+      <td>
+        <textarea name="address" class="form-control" required></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>Enter Contact No.</td>
+      <td>
+        <input type="number" name="contactno" class="form-control" required placeholder="Enter Contact No." />
+      </td>
+    </tr>
+    <tr>
+      <td>Enter Email Address</td>
+      <td>
+        <input type="email" name="emailaddress" class="form-control" required placeholder="Enter email address" />
+      </td>
+    </tr>
+    <tr>
+      <td>Enter Password</td>
+      <td>
+        <input type="password" name="password" class="form-control" required placeholder="Enter password" />
+      </td>
+    </tr>
+    <tr>
+      <td>Confirm Password</td>
+      <td>
+        <input type="password" name="confirmpassword" class="form-control" required placeholder="Confirm password" />
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </td>
+    </tr>
+  </table>
+</form>
+{% endblock body%}
